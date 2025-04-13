@@ -143,19 +143,31 @@ CREATE TABLE order_history (
 );-- Table for order history with a unique ID, order ID, status ID, and status date
 -- The order ID and status ID columns are foreign keys referencing the respective tables
 
+--PRIVILEGES AND GRANTS
+-- Privileges for Devs 
+GRANT ALL PRIVILEGES ON `bookstore_db`.`bookstore_db` TO `Devs`@`localhost`;
 
+--Priveleges for cashiers
+GRANT USAGE ON *.* TO `Cashiers`@`localhost`;
+GRANT SELECT ON `bookstore_db`.`address` TO `Cashiers`@`localhost`;
+GRANT SELECT ON `bookstore_db`.`book` TO `Cashiers`@`localhost`;
+GRANT SELECT, INSERT, UPDATE ON `bookstore_db`.`cust_order` TO `Cashiers`@`localhost`;
+GRANT UPDATE ON `bookstore_db`.`customer_address` TO `Cashiers`@`localhost`;
+GRANT SELECT ON `bookstore_db`.`customer` TO `Cashiers`@`localhost`;
+GRANT SELECT ON `bookstore_db`.`order_history` TO `Cashiers`@`localhost`;
+GRANT INSERT ON `bookstore_db`.`order_line` TO `Cashiers`@`localhost`;   
+GRANT SELECT ON `bookstore_db`.`order_status` TO `Cashiers`@`localhost`;
+GRANT SELECT ON `bookstore_db`.`shipping_method` TO `Cashiers`@`localhost`;
 
+--Privileges for Help Desk
+GRANT SELECT ON `bookstore_db`.`book` TO `helpDesk`@`localhost`;
+GRANT SELECT ON `bookstore_db`.`cust_order` TO `helpDesk`@`localhost`;
+GRANT SELECT ON `bookstore_db`.`customer` TO `helpDesk`@`localhost`;
+GRANT SELECT ON `bookstore_db`.`order_history` TO `helpDesk`@`localhost`;
+GRANT SELECT ON `bookstore_db`.`order_line` TO `helpDesk`@`localhost`;
+GRANT SELECT ON `bookstore_db`.`order_status` TO `helpDesk`@`localhost`;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+--Privileges for Customers
+GRANT SELECT, UPDATE ON `bookstore_db`.`customer_address` TO `Customers`@`localhost`;
+GRANT SELECT, UPDATE, CREATE ON `bookstore_db`.`customer` TO `Customers`@`localhost`;
+GRANT SELECT ON `bookstore_db`.`order_history` TO `Customers`@`localhost`;
