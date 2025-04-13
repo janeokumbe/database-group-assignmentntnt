@@ -143,6 +143,13 @@ CREATE TABLE order_history (
 );-- Table for order history with a unique ID, order ID, status ID, and status date
 -- The order ID and status ID columns are foreign keys referencing the respective tables
 
+-- USERES AND PRIVELEGES
+--CREATE USERS
+CREATE USER `Devs`@`localhost` IDENTIFIED BY `1234`;
+CREATE USER `helpDesk`@`localhost` IDENTIFIED BY `1234`;
+CREATE USER `Cashiers`@`localhost` IDENTIFIED BY `1234`;
+CREATE USER `Customers`@`localhost` IDENTIFIED BY `1234`;
+
 --PRIVILEGES AND GRANTS
 -- Privileges for Devs 
 GRANT ALL PRIVILEGES ON `bookstore_db`.`bookstore_db` TO `Devs`@`localhost`;
